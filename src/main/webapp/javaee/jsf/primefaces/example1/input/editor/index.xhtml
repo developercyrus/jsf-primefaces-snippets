@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+</h:head>
+<h:body>
+    <h:form id="form">
+       <p:editor id="editor" value="#{EditorBean.value}" />
+       <!--  
+            actionListeners are always invoked before the action
+            reference: http://stackoverflow.com/questions/3909267/differences-between-action-and-actionlistener
+       -->         
+       <!-- 
+            they are equivalent, one is invoked by method, and returned a string of a page name, while one is a hardcore of a page name.    
+            reference: http://www.mkyong.com/jsf2/jsf-2-actionlistener-example/        
+        -->  
+       <h:commandButton id="submitButton1" value="Submit" actionListener="#{EditorBean.printId}" action="#{EditorBean.goTo}" />
+       <h:commandButton id="submitButton2" value="Submit" actionListener="#{EditorBean.printId}" action="result" />
+    </h:form>
+</h:body>
+</html>
