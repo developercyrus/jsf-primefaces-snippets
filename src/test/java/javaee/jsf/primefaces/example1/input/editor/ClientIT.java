@@ -18,7 +18,15 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
 public class ClientIT {
+	/*
+	  	since url-pattern is defined either as xhtml, faces, jsf in web.xml
+	 	the url below, either one of them, is valid and can be accessible
+	 */
+	//private String url = "http://localhost:8080/jsf-primefaces-snippets/javaee/jsf/primefaces/example1/input/editor/index.jsp";
+	//private String url = "http://localhost:8080/jsf-primefaces-snippets/javaee/jsf/primefaces/example1/input/editor/index.faces";
+	//private String url = "http://localhost:8080/jsf-primefaces-snippets/javaee/jsf/primefaces/example1/input/editor/index.jsf";
 	private String url = "http://localhost:8080/jsf-primefaces-snippets/javaee/jsf/primefaces/example1/input/editor/index.xhtml";
+	
 	
 	@Test
 	public void test1() throws Exception {
