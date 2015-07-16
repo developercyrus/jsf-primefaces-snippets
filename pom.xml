@@ -11,7 +11,10 @@
         1.  Every component should have a id, otherwise JSF will generate for you which is in the following pattern: component1:component2:component3
             It might introduct difficult for jquery selector since colon must be escaped.
         2.  ManagedBean cannot used with a dot for naming, e.g., javaee.jsf.primefaces.example1.input.editor.EditorBean    
-
+        3.  the extension, jsf, xhtml, or faces, are defined in web.xml. In servlet 3.0, there's no longer required web.xml. this project uses servlet 3.1
+        4.  in view (either extension of jsf, xhtml, faces), prefix f/h uses components from oracle implementation, and prefix p uses componenet from primefaces implementation
+        
+        
 
         Flow:
         1.  Example1
@@ -30,6 +33,17 @@
         1.  Windows 7 64 bit (assume OS installed in C:\Windows)
         2.  Eclipse 4.4
         3.  JDK 8.0   
+        
+        
+        
+        Approach1 - all automate (this project uses this)       
+        1. "mvn clean install" 
+            a) compile                
+            b) start jetty, jetty-maven-plugin:start    at pre-integration-test     phase
+            c) run integration test                     at integration-test         phase
+            d) stop jetty, jetty-maven-plugin:stop      at post-integration-test    phase
+        2. while jboss is still running, the server can be manually accessed without using integration test by going to 
+            http://localhost:8080/ejb21-jboss422-snippets-web/HelloWorldLocalClientServlet  
         
         
      -->
@@ -117,8 +131,7 @@
             <groupId>javax.faces</groupId>
             <artifactId>javax.faces-api</artifactId>
             <version>2.2</version>
-        </dependency>
-        
+        </dependency>        
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
@@ -167,6 +180,8 @@
             <version>4.10</version>
         </dependency>
         
+        
+        
          <!-- jsoup -->
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -175,7 +190,8 @@
         </dependency>
         
         
-        <!-- htmlunit, used by example3 --> 
+        
+        <!-- htmlunit, used by example1 --> 
         <dependency>
             <groupId>net.sourceforge.htmlunit</groupId>
             <artifactId>htmlunit</artifactId>
